@@ -57,4 +57,39 @@ class ApiController extends Controller
         ];
         return $success;
     }
+
+    public function store_wish(Request $request){
+       
+        $data = $request->all();
+
+        $validator = Validator::make($request->all(), [
+                'nama'=>'required',
+                'komen'=>'required',
+        ]);
+
+        if ($validator->fails()) {
+
+            $message = '';
+            foreach($validator->errors()->all() as $error){
+                $message .= $error . ', ';
+            }
+            $error = [
+                'status' =>  404,
+                'message' => $message
+            ];
+
+            return $error;
+        }
+
+        Wish::create([
+            'nama'=> $data['nama'],
+            'komen'=> $data['komen'],
+        ]);
+
+        $success = [
+            'status' => 200,
+            'message' => 'Successfully created data'
+        ];
+        return $success;
+    }
 }

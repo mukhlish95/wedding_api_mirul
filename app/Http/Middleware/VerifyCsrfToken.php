@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'http://wedding-api.test/api/save-rsvp',
         'http://wedding-api.test/api/fetch-wish',
+        'http://wedding-api.test/api/save-wish',
     ];
 }

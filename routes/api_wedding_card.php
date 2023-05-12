@@ -19,3 +19,4 @@ Route::post('/api/save-rsvp',[ApiController::class, 'store_rsvp'])->name('api.sa
 
 // cara show total power 
 Route::get('/api/fetch-wish', [ApiController::class, 'fetch_wish'])->name('api.fetch_wish');
+Route::post('/api/save-wish',[ApiController::class, 'store_wish'])->name('api.save_wish');
